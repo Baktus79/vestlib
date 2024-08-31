@@ -1,4 +1,4 @@
 name: VestLibs
-version: '${version}'
+version: ${version}
 main: no.vestlandetmc.vestlibs.VestLibs
 api-version: '1.21'
