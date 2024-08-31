@@ -44,6 +44,17 @@ java {
     }
 }
 
+toolchainManagement {
+    repositories {
+        jvm {
+            jdkDownload {
+                javaLanguageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
+                vendor.set(JvmVendorSpec.AZUL)  // Velg JDK-leverandør, f.eks. Azul Zulu
+            }
+        }
+    }
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 
