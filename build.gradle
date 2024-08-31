@@ -4,19 +4,16 @@ plugins {
     id 'io.github.goooler.shadow' version '8.1.8'
 }
 
+group = 'com.github.Baktus79'
+version = '1.0.0'
+
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId 'com.github.Baktus79'
-            artifactId 'vestlib'
-            version '1.0.0'
-            artifact file("build/libs/VestLibs.jar")
+            artifact "build/libs/VestLibs.jar"
         }
     }
 }
-
-group = 'no.vestlandetmc'
-version = '1.0.0'
 
 repositories {
     mavenCentral()
