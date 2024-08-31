@@ -4,6 +4,17 @@ plugins {
     id 'io.github.goooler.shadow' version '8.1.8'
 }
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId 'com.github.Baktus79'
+            artifactId 'vestlib'
+            version '1.0.0'
+            artifact "build/libs/VestLibs.jar"
+        }
+    }
+}
+
 group = 'no.vestlandetmc'
 version = '1.0.0'
 
@@ -59,16 +70,5 @@ processResources {
     filteringCharset 'UTF-8'
     filesMatching('paper-plugin.yml') {
         expand props
-    }
-}
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId 'com.github.Baktus79'
-            artifactId 'vestlib'
-            version project.version
-            artifact "build/libs/VestLibs.jar"
-        }
     }
 }
