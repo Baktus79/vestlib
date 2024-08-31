@@ -10,7 +10,7 @@ publishing {
             groupId 'com.github.Baktus79'
             artifactId 'vestlib'
             version '1.0.0'
-            artifact "build/libs/VestLibs.jar"
+            artifact file("build/libs/VestLibs.jar")
         }
     }
 }
