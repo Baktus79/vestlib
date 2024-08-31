@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'io.github.goooler.shadow' version '8.1.8'
+    id 'io.freefair.lombok' version '8.10'
 }
 
 group = 'no.vestlandetmc'
@@ -7,18 +9,32 @@ version = '1.0.0'
 
 repositories {
     mavenCentral()
-    maven {
-        name = "papermc-repo"
-        url = "https://repo.papermc.io/repository/maven-public/"
-    }
-    maven {
-        name = "sonatype"
-        url = "https://oss.sonatype.org/content/groups/public/"
-    }
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url 'https://oss.sonatype.org/content/repositories/public' }
+    maven { url 'https://repo.aikar.co/content/groups/aikar/' }
+
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
+    compileOnly 'io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT'
+    implementation 'fr.mrmicky:fastboard:2.1.3'
+    implementation 'co.aikar:acf-paper:0.5.1-SNAPSHOT'
+    implementation 'dev.triumphteam:triumph-gui:3.1.10'
+}
+
+shadowJar {
+    relocate 'dev.triumphteam.gui', 'no.vestlandetmc.vestlibs.gui'
+    relocate 'fr.mrmicky.fastboard', 'no.vestlandetmc.vestlibs.fastboard'
+    relocate 'co.aikar.commands', 'no.vestlandetmc.vestlibs.acf'
+    relocate 'co.aikar.locales', 'no.vestlandetmc.vestlibs.locales'
+
+    archiveFileName.set('VestLibs.jar')
+}
+
+jar.dependsOn shadowJar
+
+jar {
+    enabled = false
 }
 
 def targetJavaVersion = 21
