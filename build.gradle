@@ -2,11 +2,10 @@ plugins {
     id 'java'
     id 'maven-publish'
     id 'io.github.goooler.shadow' version '8.1.8'
-    id 'io.freefair.lombok' version '8.10'
 }
 
 group = 'no.vestlandetmc'
-version = '1.0.0'
+version = '1.0.1'
 
 repositories {
     mavenCentral()
