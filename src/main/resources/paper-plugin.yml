@@ -1,0 +1,4 @@
+name: VestLibs
+version: '1.0.0'
+main: no.vestlandetmc.vestLibs.VestLibs
+api-version: '1.21'
